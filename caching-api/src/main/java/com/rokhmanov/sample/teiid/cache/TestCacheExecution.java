@@ -2,18 +2,15 @@ package com.rokhmanov.sample.teiid.cache;
 
 import java.util.Date;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
 
-import org.teiid.language.Condition;
 import org.teiid.language.QueryExpression;
 import org.teiid.language.Select;
-import org.teiid.metadata.RuntimeMetadata;
 import org.teiid.translator.CacheDirective;
+import org.teiid.translator.CacheDirective.Scope;
 import org.teiid.translator.DataNotAvailableException;
 import org.teiid.translator.ExecutionContext;
 import org.teiid.translator.ResultSetExecution;
 import org.teiid.translator.TranslatorException;
-import org.teiid.translator.CacheDirective.Scope;
 
 import com.google.common.collect.Lists;
 

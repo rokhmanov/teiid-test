@@ -1,5 +1,6 @@
 package com.rokhmanov.sample.teiid.cache;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.sql.Connection;
@@ -12,6 +13,7 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.teiid.adminapi.impl.ModelMetaData;
 import org.teiid.jdbc.TeiidDriver;
@@ -32,7 +34,21 @@ public class TeiidTest {
 		Thread.sleep(1000);
 		List<String> resultCached = execute("select * from cached.test");
 		String dateMark2 = resultCached.get(0);
+		System.out.println("Should be taken from cache:" + dateMark1 + "----" + dateMark2);
 		assertTrue(dateMark1.equalsIgnoreCase(dateMark2));
+	}
+	
+	@Ignore
+	@Test
+	public void testDisableCacheDynamically() throws Exception
+	{
+		List<String> result = execute("select * from cached.test");
+		String dateMark1 = result.get(0);  
+		Thread.sleep(1000);
+		List<String> resultNotCached = execute("select * from cached.test where id=2");
+		String dateMark2 = resultNotCached.get(0);
+		System.out.println("The second result should not be taken from cache:" + dateMark1 + "----" + dateMark2);
+		assertFalse(dateMark1.equalsIgnoreCase(dateMark2));
 	}
 	
 	private List<String> execute(String sql) throws Exception {
