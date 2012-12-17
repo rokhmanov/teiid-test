@@ -38,7 +38,7 @@ public class TeiidTest {
 		assertTrue(dateMark1.equalsIgnoreCase(dateMark2));
 	}
 	
-	@Ignore
+	
 	@Test
 	public void testDisableCacheDynamically() throws Exception
 	{

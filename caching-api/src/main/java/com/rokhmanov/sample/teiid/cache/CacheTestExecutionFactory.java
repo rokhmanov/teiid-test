@@ -35,7 +35,7 @@ public class CacheTestExecutionFactory  extends ExecutionFactory<Object, Object>
 		return cd;
 	}
 
-	
+
 	@Override
 	public ResultSetExecution createResultSetExecution(QueryExpression command,
 			ExecutionContext executionContext, RuntimeMetadata metadata,
@@ -72,5 +72,10 @@ public class CacheTestExecutionFactory  extends ExecutionFactory<Object, Object>
 	public boolean supportsSelectExpression() {
 		return true;
 	}
+
 	
+	@Override
+	public boolean supportsCompareCriteriaEquals() {
+		return true;
+	}
 }
