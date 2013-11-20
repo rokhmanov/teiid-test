@@ -54,12 +54,10 @@ public class TestCacheExecution implements ResultSetExecution {
 	
 
 	public void close() {
-		// TODO Auto-generated method stub
 
 	}
 
 	public void cancel() throws TranslatorException {
-		// TODO Auto-generated method stub
 
 	}
 }
